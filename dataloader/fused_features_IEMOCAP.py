@@ -58,15 +58,16 @@ def get_fused_features(list_of_paths):
             raise e
 
     converted_dic = convert_2_numpy_per_utterance(final_data_dic)
+    return converted_dic
 
-    x_tr_list = []
-    Y_tr = []
-    for tr_speaker, tr_data in converted_dic.items():
-        x_tr_list.append(tr_data['x'])
-        Y_tr += tr_data['y']
-    X_tr = np.concatenate(x_tr_list, axis=0)
-
-    return X_tr, Y_tr
+    # x_tr_list = []
+    # Y_tr = []
+    # for tr_speaker, tr_data in converted_dic.items():
+    #     x_tr_list.append(tr_data['x'])
+    #     Y_tr += tr_data['y']
+    # X_tr = np.concatenate(x_tr_list, axis=0)
+    #
+    # return X_tr, Y_tr
 
 
 def get_args():
