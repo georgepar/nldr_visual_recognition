@@ -38,7 +38,7 @@ def get_fused_features(list_of_paths):
         feat_p = list_of_paths.pop(0)
         final_data_dic = joblib.load(feat_p)
     except Exception as e:
-        print "At least one file path is required"
+        print("At least one file path is required")
         raise e
 
     while list_of_paths:
@@ -54,7 +54,7 @@ def get_fused_features(list_of_paths):
                                              axis=0)
                     final_data_dic[spkr][id]['x'] = new_vec
         except Exception as e:
-            print "Failed to update the Fused dictionary"
+            print("Failed to update the Fused dictionary")
             raise e
 
     converted_dic = convert_2_numpy_per_utterance(final_data_dic)
@@ -87,4 +87,4 @@ if __name__ == "__main__":
     """!brief Example of usage"""
     args = get_args()
     X, Y = get_fused_features(args.input_features_paths)
-    print X.shape
+    print(X.shape)
